@@ -42,17 +42,24 @@
         alt="Bear"
         style="transform: translate(50%, 50%)"
       />
-      <span class="text">CLICK THE BEAR</span>
+      <span class="text" id="display-text">CLICK THE BEAR => 0</span>
     </section>
 
     <script>
+      var total = 0;
+
       function move() {
         const one = Math.round(Math.random() * 600);
         const two = Math.round(Math.random() * 300);
 
+        total++;
+
         const audio = new Audio("./clap.wav");
         const imageRef = document.getElementById("image");
+        const textRef = document.getElementById("display-text");
+
         audio.play();
+        textRef.innerText = `CLICK THE BEAR => ${total}`;
         imageRef.style.transform = `translate(${one}%, ${two}%)`;
       }
     </script>
