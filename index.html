@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CSS Animation</title>
+  </head>
+  <body>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+      }
+
+      .main-sec {
+        height: 100vh;
+        position: relative;
+        background-image: url("./gradient.png");
+      }
+
+      .text {
+        color: white;
+        position: absolute;
+        bottom: 25px;
+        font-size: 1.5rem;
+      }
+
+      img {
+        width: 10%;
+        height: auto;
+        transition: 0.5s;
+      }
+    </style>
+
+    <section class="main-sec">
+      <img
+        id="image"
+        onclick="move()"
+        src="./bear.png"
+        alt="Bear"
+        style="transform: translate(50%, 50%)"
+      />
+      <span class="text">CLICK THE BEAR</span>
+    </section>
+
+    <script>
+      function move() {
+        const one = Math.round(Math.random() * 600);
+        const two = Math.round(Math.random() * 300);
+
+        const audio = new Audio("./clap.wav");
+        const imageRef = document.getElementById("image");
+        audio.play();
+        imageRef.style.transform = `translate(${one}%, ${two}%)`;
+      }
+    </script>
+  </body>
+</html>
