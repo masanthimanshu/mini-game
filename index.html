@@ -24,7 +24,7 @@
         color: white;
         position: absolute;
         bottom: 25px;
-        font-size: 1.5rem;
+        font-size: 1rem;
       }
 
       img {
@@ -42,10 +42,16 @@
         alt="Bear"
         style="transform: translate(50%, 50%)"
       />
-      <span class="text" id="display-text">CLICK THE BEAR => 0</span>
+      <span class="text" id="display-text"
+        >CLICK THE BEAR OR HIT SPACE => 0</span
+      >
     </section>
 
     <script>
+      document.body.onkeyup = (e) => {
+        if (e.keyCode == 32) move();
+      };
+
       var total = 0;
 
       function move() {
